@@ -4,11 +4,6 @@ module.exports = (app, options) => {
   console.log('api handle..')
   const {repo} = options
 
-  app.get('/', function(req, res, next) {
-    res.status(status.OK).json({ message: 'welcome to the fox farm' })
-    next()
-  })
-
   app.get('/foxes', (req, res, next) => {
     repo.getAllFoxes().then(foxes => {
       res.status(status.OK).json(foxes)
@@ -20,16 +15,4 @@ module.exports = (app, options) => {
       res.status(status.OK).json(fox)
     }).catch(next)
   })
-
-  // app.post('/foxes', (req, res, next) => {
-  //   console.log(req)
-  //   const {validate} = req.container
-  //
-  //   repo.addFox()
-  //
-  //   validate(req.body.payload, 'fox')
-  //     .then(ok => {
-  //       res.status(status.OK).json({msg: 'ok'})
-  //     }).catch(next)
-  // })
 }

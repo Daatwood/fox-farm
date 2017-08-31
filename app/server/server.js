@@ -21,6 +21,11 @@ const start = (options) => {
       res.status(500).send('Something went wrong!')
     })
 
+    app.get('/', (req, res, next) => {
+      res.status(200).send('Welcome to the <a href="/foxes">fox farm</a>')
+      next()
+    })
+
     api(app, options)
 
     const server = app.listen(options.port, () => resolve(server))

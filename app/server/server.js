@@ -4,6 +4,7 @@ const helmet = require('helmet')
 const api = require('../api/foxes')
 
 const start = (options) => {
+  console.log('server start..')
   return new Promise((resolve, reject) => {
     if (!options.repo) {
       reject(new Error('The server must be started with a connected repository'))

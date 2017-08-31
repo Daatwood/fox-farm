@@ -5,13 +5,16 @@ describe('Foxes API', () => {
   let app = null
   let testFoxes = [{
     'id': '1',
-    'name': 'Willow'
+    'name': 'Willow',
+    'age': '5'
   }, {
     'id': '5',
-    'name': 'Shark'
+    'name': 'Shark',
+    'age': '9'
   }, {
     'id': '3',
-    'name': 'Rogue'
+    'name': 'Rogue',
+    'age': '26'
   }]
 
   let testRepo = {
@@ -21,10 +24,11 @@ describe('Foxes API', () => {
     getFoxById (id) {
       return Promise.resolve(testFoxes.find(fox => fox.id === id))
     },
-    addFox (name) {
+    addFox (name, age) {
       const newFox = {
         id: 999,
-        name: name
+        name: name,
+        age: age
       }
       return Promise.resolve(newFox)
     }
@@ -50,19 +54,21 @@ describe('Foxes API', () => {
       .expect((res) => {
         res.body.should.containEql({
           'id': '1',
-          'name': 'Willow'
+          'name': 'Willow',
+          'age': '5'
         })
       })
       .expect(200, done)
   })
 
-  it('returns 200 for an known movie', (done) => {
+  it('returns 200 for an known fox', (done) => {
     request(app)
       .get('/foxes/1')
       .expect((res) => {
         res.body.should.containEql({
           'id': '1',
-          'name': 'Willow'
+          'name': 'Willow',
+          'age': '5'
         })
       })
       .expect(200, done)

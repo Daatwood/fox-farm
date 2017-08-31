@@ -6,8 +6,9 @@ console.log(Object.getPrototypeOf(validate))
 describe('Schema Validation', () => {
   it('can validate a fox object', (done) => {
     const foxSchema = {
-      objectId: '1ab23cd',
-      name: 'Willow'
+      id: '1ab23cd',
+      name: 'Willow',
+      age: 5
     }
 
     validate(foxSchema, 'fox')

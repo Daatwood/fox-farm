@@ -1,6 +1,7 @@
 const status = require('http-status')
 
 module.exports = (app, options) => {
+  console.log('api handle..')
   const {repo} = options
 
   app.get('/foxes', (req, res, next) => {

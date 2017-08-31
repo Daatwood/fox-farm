@@ -1,6 +1,7 @@
 const foxSchema = (joi) => ({
-  objectId: joi.string(),
+  id: joi.string(),
   name: joi.string(),
+  age: joi.number()
 })
 
 module.exports = foxSchema

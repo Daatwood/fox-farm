@@ -57,6 +57,7 @@ const repository = (db) => {
 }
 
 const connect = (connection) => {
+  console.log('repo connect..')
   return new Promise((resolve, reject) => {
     if (!connection) {
       reject(new Error('connection db not supplied!'))

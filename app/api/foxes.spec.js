@@ -74,4 +74,13 @@ describe('Foxes API', () => {
       .expect(200, done)
   })
 
+  it('has link on root', (done) => {
+    request(app)
+      .get('/')
+      .expect((res) => {
+        res.text.should.match(/\/foxes/)
+      })
+      .expect(200, done)
+  })
+
 })

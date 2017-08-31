@@ -39,6 +39,7 @@ mediator.on('db.error', (err) => {
   console.error(err)
 })
 
+// Connect to the database using db settings and EventEmitter DI
 config.db.connect(config.dbSettings, mediator)
 
 mediator.emit('boot.ready')

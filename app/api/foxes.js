@@ -4,6 +4,11 @@ module.exports = (app, options) => {
   console.log('api handle..')
   const {repo} = options
 
+  app.get('/', function(req, res, next) {
+    res.status(status.OK).json({ message: 'welcome to the fox farm' })
+    next()
+  })
+
   app.get('/foxes', (req, res, next) => {
     repo.getAllFoxes().then(foxes => {
       res.status(status.OK).json(foxes)
